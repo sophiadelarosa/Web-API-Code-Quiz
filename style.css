@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/images/ponyisland.jpg");
+  background-size: cover;
+}
+
+/* Normal box styling */
+
+.box-label {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  font-size: large;
+  font-weight: 500;
+  /* font size */
+}
+
+.info-list {
+  padding: 15px;
+}
+
+.info-item {
+  margin: 5px 0;
+}
+
+/* Starter box */
+
+.starter-box,
+.quiz-box,
+.result-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: white;
+  border-radius: 3px;
+}
+
+#start-btn {
+  height: 60px;
+  display: flex;
+  /*align-items: right;*/
+  justify-content: flex-end;
+  padding: 0 35px;
+  border-top: 1px solid lightgrey;
+}
+
+#start-btn button {
+  margin-top: 10px;
+  height: 45px;
+  border: 1px solid grey;
+  /* background: # ; */
+  border-radius: 2px;
+  /* color: font color;
+  color: ; */
+  padding: 15px 30px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/*button:hover {
+
+} */
+
+
+/* Quiz Box */
+
+.question {
+  position: relative;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  font-size: large;
+  font-weight: 600;
+}
+
+.option-list {
+  padding: 25px 30px 20px 30px;
+  background: white;
+  display: block;
+}
+
+.option-list .option {
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.quiz-box .option-list .option:hover {
+  background-color: rgb(150, 150, 224);
+  cursor: pointer;
+}
+
+footer {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 15px;
+}
+
+footer #next-btn {
+  height: 40px;
+  padding: 0 13px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.quiz-box {
+  opacity: 0;
+}
+
+.result-box {
+  opacity: 0;
+}
+
+.highscore-box {
+  opacity: 0;
+}
+
+/* Activate the boxes */
+.quiz-box.active {
+  
+}
