@@ -1,9 +1,3 @@
-<!-- To do list: -->
-<!-- Use start/next buttons to display next section -->
-<!-- compile results and add to result box -->
-<!-- high score section with initials -->
-<!-- Timer -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,43 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
 
   <body>
 
-    <!--Starter screen-->
-    <div class="starter-box">
+    <!--Main screen-->
+    <div id="box">
       <div class="box-label">
         <span>Let's play a game</span>
       </div>
       <div class="info-list">
-        <div class="info-item">Confident in your coding knowledge? Want to bet your soul on it?</div>
-        <div class="info-item">Let's play a game. Score too low and lose your soul. Do well enough and you may just get out relatively unscathed.</div>
-        <div class="info-item">If you agree to the terms, press start to begin.</div>
+        <div class="info-item">Rule 1</div>
+        <div class="info-item">Rule 2</div>
+        <div class="info-item">Rule 3</div>
       </div>
       <!--Start button-->
-      <div id="start-btn">
-        <button>Start</button>
+      <div>
+        <button id="start-btn">Start</button>
       </div>
-    </div>
-
-    <!-- Quiz Box -->
-    <div class="quiz-box">
-      <div class="question">Commonly used data types do NOT include:</div>
-      <div class="option-list">
-        <p class="option">Strings</p>
-        <p class="option">Booleans</p>
-        <p class="option">Alerts</p>
-        <p class="option">Numbers</p>
-      </div>
-      <!-- Quiz Box Footer -->
-      <footer>
-        <button id="next-btn">Next</button>
-      </footer>
     </div>
 
   <!--Result Box-->
-  <div class="result-box">
+  <div class="hidden" id="result-box">
     <div class="box-label"> You've completed the quiz. </div>
     <div class="info-item"> Your score is:</div>
     <footer>
@@ -58,7 +38,7 @@
 
   <!-- High scores -->
 
-  <div class="highscore-box">
+  <div class="hidden" id="highscore-box">
     <div class="box-label"> Highscores </div>
     <div class="info-item"> Text </div>
   </div>
