@@ -46,16 +46,25 @@ start_btn.addEventListener("click", createQuiz);
 //start the quiz
 function createQuiz() {
     questionLooper();
-    console.log("quiz time!");
+    console.log("Why are you looking down here? Focus on the quiz.");
 }
 
 //function to end the quiz
 function endQuiz() {
-    box.innerHTML = `<h1>Quiz Complete</h1>`;
-    box.innerHTML += `<h2> Your score is: ` + score + `</h2>`;
+    box.innerHTML = `<h1 class="box-label">Quiz Complete</h1>`;
+    box.innerHTML += `<h2 class="list-item"> Your score is: ` + score + " " + `out of 100` + `</h2>`;
+
+    if (score < 80) {
+        box.innerHTML += `<h2 class="ending-text"> Your soul is mine </h2>`;
+    } else {
+        box.innerHTML += `<h2 class="ending-text"> You can go. But I'll still remember you... </h2>`;
+    }
+    
     //make initial box
     box.innerHTML += `<input type="text" id="initials" placeholder = "Please enter your initials"> 
         <button id="submit" onClick="submitScore()"> Submit </button>`
+
+    
 }
 
 //function to loop through the questions
@@ -78,12 +87,12 @@ function questionLooper() {
 function checkAnswer(event, qi) {
     var element = event.target;
     if (element.value == questions[qi].answer) {
-        score = score + 10;
+        score = score + 20;
         console.log(score);
         //createDiv.textContent = "Correct! The answer is: " + questions[qi].answer;
     } else {
         //don't let score get less than 0
-        score = score - 10;
+        score = score - 20;
         if (score <= 0) {
             score = 0;
         }
@@ -96,11 +105,41 @@ function checkAnswer(event, qi) {
 
 //function for submit button
 function submitScore () {
+    //establishing variables for the function
     let initials = document.getElementById("initials").value;
-    box.innerHTML = `<h1>Highscores</h1>`;
-    box.innerHTML += initials + score;
-    console.log(initials + score);
+    let leaderboardItem = " " + initials + " " + score;
+
+    //on submit, showing high scores array from local storage
+    box.innerHTML = `<h1 class="box-label">Highscores</h1>`;
+    
+    //logs leaderboard item from most recent result
+    console.log(leaderboardItem);
+    
+    //if there is nothing saved at the start then save an empty array
+    if(localStorage.getItem('leaderboardItem') == null) {
+        localStorage.setItem('leaderboardItem', '[]');
+    }
+    
+    //get old leaderboard item and slap it to the new data
+    let oldLeaderboardItem = JSON.parse(localStorage.getItem('leaderboardItem'));
+    oldLeaderboardItem.push(leaderboardItem);
+
+    //save the old and new leaderboard item in local storage
+    localStorage.setItem('leaderboardItem', JSON.stringify(oldLeaderboardItem));
+
+    //if local storage leaderboardItem is not empty, show contents
+    if(localStorage.getItem('leaderboardItem') != null) {
+        box.innerHTML += `<h4 class="list-item">`+JSON.parse(localStorage.getItem('leaderboardItem')) +`</h4>`;
+    }
 }
+
+
+//if highscore list is > 5, delete the rest
+//if(localStorage.getItem('leaderboardItem').length > 5) {
+
+//}
+
+
 
 
 

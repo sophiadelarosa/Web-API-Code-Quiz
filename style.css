@@ -5,11 +5,11 @@
 }
 
 body {
-  background-image: url("./assets/images/ponyisland.jpg");
+  background-image: url("./assets/images/starterscreen.gif");
   background-size: cover;
 }
 
-/* Normal box styling */
+/* box styling */
 
 #box {
   position: absolute;
@@ -17,8 +17,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-  background-color: white;
-  opacity: 90%;
+  background-color: rgb(88, 73, 110);
+  opacity: 80%;
   border-radius: 3px;
   padding: 20px;
 }
@@ -27,12 +27,27 @@ body {
   height: 50px;
   width: 100%;
   border-bottom: 1px solid lightgrey;
+  font-family: 'Palette Mosaic', cursive;
+  color: black;
+  font-size: xx-large;
   display: flex;
   align-items: center;
   padding: 0 35px;
-  font-size: large;
+  padding-bottom: 20px;
   font-weight: 500;
-  /* font size */
+}
+
+.question {
+  font-family: 'Kirang Haerang', cursive;
+  position: relative;
+  height: 70px;
+  border-bottom: 1px solid lightgrey;
+  padding: 0 30px;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: 600;
 }
 
 .option {
@@ -40,54 +55,65 @@ body {
   margin: 5px 0;
   display: flex;
   flex-wrap: wrap;
+  padding: 8px 15px;
+  align-items: center;
+  font-family: 'DotGothic16', sans-serif;
+  font-weight: 500;
+  color: white;
 }
 
-/* Starter button */
-
-#start-btn {
-  height: 40px;
+.list-item {
+  padding: 15px;
+  margin: 5px 0;
   display: flex;
-  justify-content: flex-end;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 10px;
-  border-top: 1px solid lightgrey;
+  flex-wrap: wrap;
+  padding: 8px 15px;
+  align-items: center;
+  font-family: 'DotGothic16', sans-serif;
+  font-size: large;
+  color: white;
 }
 
-#start-btn button{
+.list-item-small {
+  padding: 15px;
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 15px;
+  align-items: center;
+  font-family: 'DotGothic16', sans-serif;
+  font-size: x-small;
+  color: white;
+}
+
+/* Buttons */
+
+button {
+  font-family: 'Kirang Haerang', cursive;
+  font-size: medium;
+  display:flex;
+  justify-content: flex-end;
   margin-top: 10px;
-  height: 45px;
-  border: 1px solid grey;
+  height: 55px;
+  background-color:rgb(43, 28, 56);
+  border: 1px solid rgb(53, 33, 70);
+  color: white;
   border-radius: 2px;
   padding: 15px 30px;
   border-radius: 3px;
   cursor: pointer;
 }
 
-.question {
-  position: relative;
-  height: 70px;
-  border-bottom: 1px solid lightgrey;
-  padding: 0 30px;
-  display: flex;
-  align-items: center;
-  font-size: large;
-  font-weight: 600;
+button:hover {
+ background-color:rgb(136, 95, 172);
 }
 
-.option-list {
-  padding: 25px 30px 20px 30px;
-  background: white;
-  display: block;
+#initials {
+  padding: 20px;
+  margin-top: 30px;
 }
 
-.option-list .option {
-  padding: 8px 15px;
-  display: flex;
-  align-items: center;
-}
-
-#quiz-box .option-list .option:hover {
-  background-color: rgb(150, 150, 224);
-  cursor: pointer;
+.ending-text {
+  font-family: 'Kirang Haerang', cursive;
+  font-size: xx-large;
 }
