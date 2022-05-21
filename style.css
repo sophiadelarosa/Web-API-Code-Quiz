@@ -18,7 +18,9 @@ body {
   transform: translate(-50%, -50%);
   width: 50%;
   background-color: white;
+  opacity: 90%;
   border-radius: 3px;
+  padding: 20px;
 }
 
 .box-label {
@@ -33,21 +35,22 @@ body {
   /* font size */
 }
 
-.info-list {
+.option {
   padding: 15px;
-}
-
-.info-item {
   margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Starter button */
 
 #start-btn {
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: flex-end;
-  padding: 0 35px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
   border-top: 1px solid lightgrey;
 }
 
@@ -61,13 +64,10 @@ body {
   cursor: pointer;
 }
 
-/*button:hover {
-
-} */
-
 .question {
   position: relative;
   height: 70px;
+  border-bottom: 1px solid lightgrey;
   padding: 0 30px;
   display: flex;
   align-items: center;
@@ -91,10 +91,3 @@ body {
   background-color: rgb(150, 150, 224);
   cursor: pointer;
 }
-
-/* To hide and show the results and highscore divs */
-.hidden {
-  display: none;
-}
-
-/*add style to button*/
