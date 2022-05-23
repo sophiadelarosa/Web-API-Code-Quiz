@@ -1,6 +1,7 @@
 //Declaring the elements
 let start_btn = document.getElementById("start-btn");
 let submit_btn = document.getElementById("submit");
+let timer = document.getElementById("timer");
 
 let box = document.getElementById("box");
 let result_box = document.getElementById("result-box");
@@ -8,8 +9,32 @@ let highscore_box = document.getElementById("highscore-box");
 
 //question iterator
 let qi = -1;
-
 let score = 0;
+
+//function for timer
+function countdown() {
+    var timeLeft = 15;
+  
+    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function () {
+      // As long as the `timeLeft` is greater than 1
+      if (timeLeft > 1) {
+        // Set the `textContent` of `timer` to show the remaining seconds
+        timer.textContent = timeLeft + ' seconds remaining';
+        timeLeft--;
+      } else if (timeLeft === 1) {
+        timer.textContent = timeLeft + ' second remaining';
+        timeLeft--;
+      } else {
+        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+        timer.textContent = '';
+        // Use `clearInterval()` to stop the timer
+        clearInterval(timeInterval);
+        // Call the `endQuiz()` function
+        endQuiz();
+      }
+    }, 1000);
+  }
 
 //creating an array for questions and stuff
 let questions = [
@@ -45,6 +70,7 @@ start_btn.addEventListener("click", createQuiz);
 
 //start the quiz
 function createQuiz() {
+    countdown();
     questionLooper();
     console.log("Why are you looking down here? Focus on the quiz.");
 }
@@ -62,9 +88,7 @@ function endQuiz() {
     
     //make initial box
     box.innerHTML += `<input type="text" id="initials" placeholder = "Please enter your initials"> 
-        <button id="submit" onClick="submitScore()"> Submit </button>`
-
-    
+        <button id="submit" onClick="submitScore()"> Submit </button>`       
 }
 
 //function to loop through the questions
@@ -89,15 +113,13 @@ function checkAnswer(event, qi) {
     if (element.value == questions[qi].answer) {
         score = score + 20;
         console.log(score);
-        //createDiv.textContent = "Correct! The answer is: " + questions[qi].answer;
     } else {
-        //don't let score get less than 0
+        //score cannot be less than 0
         score = score - 20;
         if (score <= 0) {
             score = 0;
         }
         console.log(score);
-        //createDiv.textContent = "Wrong! The correct answer is: " + questions[qi].answer;
     }
     questionLooper();
 }
@@ -138,9 +160,6 @@ function submitScore () {
 //if(localStorage.getItem('leaderboardItem').length > 5) {
 
 //}
-
-
-
 
 
 

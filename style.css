@@ -117,3 +117,13 @@ button:hover {
   font-family: 'Kirang Haerang', cursive;
   font-size: xx-large;
 }
+
+#timer {
+  margin: 30px;
+  display: flex;
+  justify-content: right;
+  color: white;
+  font-family: 'Kirang Haerang', cursive;
+  font-size: xx-large;
+  opacity: 85%;
+}
